@@ -1,0 +1,48 @@
+﻿@model IndyBooks.ViewModels.SearchResultsVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewBag.Title = "Admin Search";
+    Layout = "_Layout";
+}
+
+<h3>Search Result</h3>
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Edition</th>
+        <th>Price</th>
+        <th>Year</th>
+    </tr>
+
+    @foreach (var book in Model.FoundBooks)
+    {
+        <tr>
+            <td>
+                @book.Title
+            </td>
+            <td>
+                @book.Author
+            </td>
+            <td class="rightedge">
+                @book.Edition
+            </td>
+            <td class="rightedge">
+                $@book.Price
+            </td>
+            <td class="rightedge">
+                @book.Year
+            </td>
+        </tr>
+    }
+    @if(Model.HalfPriceSale)
+        { //TODO: Use Sum method and lambda selector on the FoundBooks Collection to display the total sale price
+            <tr><td colspan="4" align="right"><b>Total Sale Price:</b>
+
+                </td></tr>
+        }
+</table>
+
+

@@ -1,0 +1,19 @@
+﻿@model IndyBooks.ViewModels.SearchVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Search";
+}
+<h3>Find Books</h3>
+<form asp-action="Search" asp-controller="Admin">
+    <fieldset>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+        <br />
+        <!-- TODO: Add fields needed for searching -->
+
+        <label asp-for="HalfPriceSale"></label>
+        <input type="checkbox" asp-for="HalfPriceSale" value="true" checked />
+    </fieldset>
+    <input type="submit" value="Search"/>
+</form>
