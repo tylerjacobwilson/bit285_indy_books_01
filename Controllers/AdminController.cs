@@ -29,8 +29,9 @@ namespace IndyBooks.Controllers
             {
                 //Filter the collection by Title which "contains" the given string
                 foundBooks = foundBooks
-                             .Where(b => b.Title.Contains(searchVM.Title));
+                             .Where(b => b.Title.Contains(searchVM.Title))
                 // TODO: Order the results by Title
+                            .OrderBy(b => b.Title);
             }
 
             //TODO: Add similar logic to filter foundbooks collection by last part of the Author's Name, if given

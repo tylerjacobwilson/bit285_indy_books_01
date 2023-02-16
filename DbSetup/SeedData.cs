@@ -15,10 +15,28 @@ namespace IndyBooks
             dbContext.Database.EnsureCreated();
             if (dbContext.Books.Any()) return;
 
-            //  TODO: Create two additional books in the seed data 
+            //  TODO Done: Create two additional books in the seed data 
             //         drop and then update the database using ef
             //
             var Books = new Book[] {
+               
+                new Book
+                {
+                    Title = "Jurassic Park",
+                    Author = "Michael Crichton",
+                    Price = 14.4M,
+                    Year = "1990"
+                },
+
+                new Book
+                {
+                    Title = "The Wizard of Oz",
+                    Author = "L. Frank Baum",
+                    Price = 20.0M, 
+                    Year = "1900"
+
+                },
+
                 new Book
                 {
                     Title = "Pride and Prejudice",
@@ -860,6 +878,8 @@ namespace IndyBooks
                     Price = 30.00M,
                     Year = "1994"
                 }
+               
+                
             };
 
             //Add to DbContext and update Database
